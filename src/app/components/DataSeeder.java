@@ -19,13 +19,13 @@ public class DataSeeder
 	{
 		if (ejeepRepo.count()== 0)
 		{
-			Ejeep e = makeEjeep("ABC 1234", "2015-Electric", 20);
+			Ejeep e = createEjeep("ABC 1234", "2015-Electric", 20);
 			ejeepRepo.save(e);
 		}
 	}
 	
 	
-	private Ejeep makeEjeep(String plateNumber, String model, Integer capacity) 
+	private Ejeep createEjeep(String plateNumber, String model, Integer capacity) 
 	{
 		Ejeep e = new Ejeep();
 		e.setPlateNumber(plateNumber);

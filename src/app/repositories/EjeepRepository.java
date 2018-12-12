@@ -10,4 +10,5 @@ public interface EjeepRepository
 	extends JpaRepository<Ejeep, Long>  // type of the object, type of the PK
 {
 	public Ejeep findByPlateNumber(String plateNumber);
+	public Ejeep findById(Long id);
 }
