@@ -1,16 +1,13 @@
 package app.entity;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Entity
-public class Operator 
+public class EjeepStop
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)  
@@ -18,13 +15,16 @@ public class Operator
 	private Long id;
 	
 	@Column
-	private String employeeId;
-	
-	@Column
 	private String name;
 	
 	@Column
-	private Date birthday;
+	private int previousStop;
+	
+	@Column
+	private int nextStop;
+	
+	@Column
+	private int lineId;
 
 	public Long getId() {
 		return id;
@@ -32,14 +32,6 @@ public class Operator
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getEmployeeId() {
-		return employeeId;
-	}
-
-	public void setEmployeeId(String employeeId) {
-		this.employeeId = employeeId;
 	}
 
 	public String getName() {
@@ -50,12 +42,28 @@ public class Operator
 		this.name = name;
 	}
 
-	public Date getBirthday() {
-		return birthday;
+	public int getPreviousStop() {
+		return previousStop;
 	}
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+	public void setPreviousStop(int previousStop) {
+		this.previousStop = previousStop;
+	}
+
+	public int getNextStop() {
+		return nextStop;
+	}
+
+	public void setNextStop(int nextStop) {
+		this.nextStop = nextStop;
+	}
+
+	public int getLineId() {
+		return lineId;
+	}
+
+	public void setLineId(int lineId) {
+		this.lineId = lineId;
 	}
 	
 }

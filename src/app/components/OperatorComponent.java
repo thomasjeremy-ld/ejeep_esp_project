@@ -25,11 +25,11 @@ public class OperatorComponent{
 		repo.save(temp);
 	}
 	
-	public void editOperator(Long Id, String employeeId, String name, Date birthday)
+	public void editOperator(String employeeId, String newemployeeId, String name, Date birthday)
 	{
-		Operator temp = repo.findById(Id);
+		Operator temp = repo.findByEmployeeId(employeeId);
 		
-		temp.setEmployeeId(employeeId);
+		temp.setEmployeeId(newemployeeId);
 		temp.setName(name);
 		temp.setBirthday(birthday);
 		
@@ -42,9 +42,9 @@ public class OperatorComponent{
 		repo.delete(repo.findByEmployeeId(employeeId));
 	}
 	
-	public String viewOperator(Long Id)
+	public String viewOperator(String employeeId)
 	{
-		Operator temp = repo.findById(Id);
+		Operator temp = repo.findByEmployeeId(employeeId);
 		
 		return("Employee ID:" + temp.getEmployeeId() + System.lineSeparator() + "Name:" + temp.getName() + System.lineSeparator() + "Birthday:" + temp.getBirthday());		
 	}
