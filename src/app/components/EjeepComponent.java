@@ -12,4 +12,7 @@ public class EjeepComponent {
 	@Autowired
 	EjeepRepository repo;
 	
+	public Ejeep getEjeep(String plateNumber){
+		return repo.findByPlateNumber(plateNumber);
+	}
 }

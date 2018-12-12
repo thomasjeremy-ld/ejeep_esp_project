@@ -9,5 +9,5 @@ import app.entity.Ejeep;
 public interface EjeepRepository 
 	extends JpaRepository<Ejeep, Long>  // type of the object, type of the PK
 {
-	public Ejeep findByName(String name);
+	public Ejeep findByPlateNumber(String plateNumber);
 }
