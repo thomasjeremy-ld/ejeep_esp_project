@@ -9,5 +9,5 @@ import app.entity.Journey;
 public interface JourneyRepository 
 	extends JpaRepository<Journey, Long>  // type of the object, type of the PK
 {
-	public Journey findByName(String name);
+	public Journey findById(Long id);
 }

@@ -6,8 +6,9 @@ import org.springframework.stereotype.Repository;
 import app.entity.EjeepStop;
 
 @Repository
-public interface EjeepStopRepository 
-	extends JpaRepository<EjeepStop, Long>  // type of the object, type of the PK
+public interface EjeepStopRepository
+	extends JpaRepository<EjeepStop, Long>
 {
+	public EjeepStop findById(int Id);
 	public EjeepStop findByName(String name);
 }

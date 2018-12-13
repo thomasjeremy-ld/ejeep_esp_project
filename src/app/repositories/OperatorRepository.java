@@ -10,4 +10,6 @@ public interface OperatorRepository
 	extends JpaRepository<Operator, Long>  // type of the object, type of the PK
 {
 	public Operator findByName(String name);
+	public Operator findByEmployeeId(String id);
+	public Operator findById(Long id);
 }
