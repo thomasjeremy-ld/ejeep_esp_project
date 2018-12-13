@@ -9,5 +9,6 @@ import app.entity.SeatOccupancy;
 public interface SeatOccupancyRepository 
 	extends JpaRepository<SeatOccupancy, Long>  // type of the object, type of the PK
 {
-	public SeatOccupancy findByName(String name);
+	public SeatOccupancy findById(Long id);
+	public SeatOccupancy findByJourneyId(Long id);
 }

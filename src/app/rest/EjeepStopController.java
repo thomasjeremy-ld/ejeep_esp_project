@@ -28,7 +28,8 @@ public class EjeepStopController
 	@Produces(MediaType.APPLICATION_JSON)
 	public EjeepStop createEjeepStop(@QueryParam("name") String name,
 							@QueryParam("previousStop") Integer previousStop,
-							@QueryParam("nextStop") Integer nextStop, @QueryParam("lineId") Integer lineId) throws IOException
+							@QueryParam("nextStop") Integer nextStop, 
+							@QueryParam("lineId") Integer lineId) throws IOException
 	{
 		return service.createEjeepStop(name, previousStop, nextStop, lineId);
 	}

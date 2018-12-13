@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import app.entity.Journey;
+import app.entity.SeatOccupancy;
 import app.repositories.EjeepRepository;
 import app.repositories.JourneyRepository;
 import app.repositories.OperatorRepository;
+import app.repositories.SeatOccupancyRepository;
 
 @Component
 public class JourneyComponent {
@@ -17,15 +19,17 @@ public class JourneyComponent {
 	EjeepRepository repoEjeep;
 	@Autowired
 	OperatorRepository repoOperator;
+	@Autowired
+	SeatOccupancyRepository repoSeat;
 	
 	public Journey createJourney(String plateNumber, String driver, String conductor, Long lineId)
 	{
 		Journey j = new Journey();
-		
+			
 			j.setEjeepId(repoEjeep.findByPlateNumber(plateNumber).getId());
 			j.setDriver(repoOperator.findByName(driver).getId());
 			j.setConductor(repoOperator.findByName(conductor).getId());
-			j.setConductor(lineId);
+			j.setLineId(lineId);
 			j.setStatus("In Transit");
 		try
 		{		
@@ -41,8 +45,6 @@ public class JourneyComponent {
 	public Journey editJourney(Long journeyId, String plateNumber, String driver, String conductor, Long lineId)
 	{
 		Journey j = repo.findById(journeyId);
-		try 
-		{
 			if (repoEjeep.findByPlateNumber(plateNumber).getId() != null)
 				j.setEjeepId(repoEjeep.findByPlateNumber(plateNumber).getId());
 			
@@ -57,11 +59,6 @@ public class JourneyComponent {
 			
 			if (lineId != null)
 				j.setLineId(lineId);
-		}
-		catch (Exception e) 
-		{
-			System.out.println(e);
-		}
 		return repo.save(j);
 	}
 	
@@ -80,5 +77,9 @@ public class JourneyComponent {
 		j.setStatus(status);	
 		
 		return repo.save(j);
+	}
+	
+	public SeatOccupancy returnSeats(Long journeyId){
+		return repoSeat.findByJourneyId(journeyId);
 	}
 }

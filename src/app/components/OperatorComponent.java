@@ -14,13 +14,13 @@ public class OperatorComponent{
 	@Autowired
 	OperatorRepository repo;
 	
-	public void createOperator(String employeeId, String name, Date birthday)
+	public void createOperator(String employeeId, String name, String birthday)
 	{
 		Operator temp = new Operator();
 		
 		temp.setEmployeeId(employeeId);
 		temp.setName(name);
-		temp.setBirthday(birthday);
+		
 		
 		repo.save(temp);
 	}

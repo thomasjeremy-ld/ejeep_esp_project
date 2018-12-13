@@ -18,6 +18,7 @@ import org.springframework.stereotype.Component;
 import app.repositories.JourneyRepository;
 import app.components.JourneyComponent;
 import app.entity.Journey;
+import app.entity.SeatOccupancy;
 
 // THIS IS THE SERVICE CLASS
 @Component
@@ -28,7 +29,6 @@ public class JourneyController
 	@Autowired
 	JourneyComponent service;
 	
-
 	@POST
 	@Path("/create")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -75,5 +75,13 @@ public class JourneyController
 								@FormParam("s") String status) throws IOException
 	{
 		return service.updateStatus(journeyId, status);
+	}
+	
+	@GET
+	@Path("/seats")
+	@Produces(MediaType.APPLICATION_JSON)
+	public SeatOccupancy returnSeats(@QueryParam("j") Long journeyId) throws IOException
+	{
+		return service.returnSeats(journeyId);
 	}
 }

@@ -12,12 +12,33 @@ public class LineComponent {
 	@Autowired
 	LineRepository repo;
 	
-	private Line createLine(String name)
+	public Line createLine(String name)
 	{
 		Line l = new Line();
 		l.setName(name);
+		return repo.save(l);
+	}
+	
+	public Line editLine(String oldName, String name)
+	{
+		Line l = repo.findByName(oldName);
+		
+		if (name != null && !name.isEmpty())
+			l.setName(name);
+		
+		return repo.save(l);
+	}
+	
+	public Line viewLine(String name)
+	{
+		return repo.findByName(name);
+	}
+	
+	public Line deleteLine(String name)
+	{
+		Line l = repo.findByName(name);
+		repo.delete(l);
 		
 		return l;
 	}
-	
 }

@@ -30,7 +30,9 @@ public class OperatorController
 	@GET
 	@Path("/create")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String createOperator(@QueryParam("employeeId") String employeeId, @QueryParam("name") String name, @QueryParam("birthday") Date birthday) throws IOException
+	public String createOperator(@QueryParam("employeeId") String employeeId, 
+									@QueryParam("name") String name, 
+									@QueryParam("birthday") String birthday) throws IOException
 	{
 		service.createOperator(employeeId, name, birthday);
 		return("You have successfully creator Operator#" + employeeId.toString() + ", " + name.toString() + ", " + "Birthday" + birthday.toString());
