@@ -12,4 +12,12 @@ public class LineComponent {
 	@Autowired
 	LineRepository repo;
 	
+	private Line createLine(String name)
+	{
+		Line l = new Line();
+		l.setName(name);
+		
+		return l;
+	}
+	
 }
